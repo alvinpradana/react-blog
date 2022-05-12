@@ -2,15 +2,11 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Button } from "../components/Button";
 import { Card } from "../components/Card";
-import Footer from "../components/Footer";
 import Header from "../components/Header";
-import Navigation from "../components/Navigation";
 
 function Home() {
     return (
         <div>
-
-            <Navigation />
 
             <Header />
 
@@ -30,14 +26,12 @@ function Home() {
                             postDate="September 24, 2022"
                         />
 
-                        <NavLink to="/all-post">
-                            <Button btnLink="/all-post" btnTitle="All Posts →" />
+                        <NavLink to="/post">
+                            <Button btnTitle="All Posts →" />
                         </NavLink>
                     </div>
                 </div>
             </div>
-
-            <Footer />
 
         </div>
     );

@@ -6,14 +6,14 @@ import Contact from '../views/Contact';
 import Detail from '../views/Detail';
 import Post from '../views/Post';
 
-function Router(props) {
+function Router() {
     return (
         <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/" element={<Contact />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/post" element={<Post />} />
-            <Route path="/detail/:slug" element={<Detail />} />
+            <Route path="/detail/:id" element={<Detail />} />
         </Routes>
     );
 }
