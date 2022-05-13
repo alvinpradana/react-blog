@@ -12,12 +12,11 @@ function Post(props) {
             },
         })
             .then(function (response) {
-                console.log(response);
                 return response.json();
             })
             .then(function (dataJson) {
-                console.log(dataJson);
-                setData(dataJson);
+                const sorted = dataJson.sort((a, b) => b.id - a.id)
+                setData(sorted);
             });
     };
     useEffect(() => {
