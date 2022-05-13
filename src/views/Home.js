@@ -7,20 +7,25 @@ import Header from "../components/Header";
 function Home() {
     return (
         <div>
-
-            <Header />
+            <Header
+                headerTitle="Welcome"
+                subHeading="Simple and minimalist portal blog with React"
+                headerStyle={{
+                    backgroundImage: `url('assets/img/post-bg.jpg')`,
+                }}
+            />
 
             <div className="container px-4 px-lg-5">
                 <div className="row gx-4 gx-lg-5 justify-content-center">
                     <div className="col-md-10 col-lg-8 col-xl-7">
                         <Card
-                            postLinkDetail="/view-1"
+                            postLinkDetail="/detail"
                             postTitle="Man must explore, and this is exploration at its greatest"
                             postSubtitle="Problems look mighty small from 150 miles up"
                             postDate="September 24, 2022"
                         />
                         <Card
-                            postLinkDetail="/view-1"
+                            postLinkDetail="/detail"
                             postTitle="Man must explore, and this is exploration at its greatest"
                             postSubtitle="Problems look mighty small from 150 miles up"
                             postDate="September 24, 2022"
@@ -32,7 +37,6 @@ function Home() {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 }

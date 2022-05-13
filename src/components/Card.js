@@ -1,17 +1,18 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 export function Card(props) {
   return (
     <div>
       <div class="post-preview">
-        <a href={props.postLinkDetail}>
+        <NavLink to={props.postLinkDetail}>
             <h2 class="post-title">
                 {props.postTitle}
             </h2>
             <h3 class="post-subtitle">
                 {props.postSubtitle}
             </h3>
-        </a>
+        </NavLink>
         <p class="post-meta">
             Posted at {props.postDate}
         </p>
