@@ -17,8 +17,7 @@ function Home() {
                 return response.json();
             })
             .then(function (dataJson) {
-                const sorted = dataJson.sort((a, b) => b.id - a.id)
-                setData(sorted);
+                setData(dataJson);
             });
     };
     useEffect(() => {
@@ -39,7 +38,7 @@ function Home() {
                     <div className="col-md-10 col-lg-8 col-xl-7">
                         {data &&
                             data.length > 0 &&
-                            data.map((post) => {
+                            data.slice(12 - data.length).sort((a, b) => b.id - a.id).map((post) => {
                                 return (
                                     <Card
                                         key={post.id}
