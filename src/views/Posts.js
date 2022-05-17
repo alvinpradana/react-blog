@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import { Button } from "../components/Button";
 import { Post } from "../components/Post";
+import Pagination from "../components/Pagination";
 import Header from "../components/Header";
 
-function Home() {
+function Posts(props) {
     const [posts, setPosts] = useState([]);
-    const [currentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(3);
 
     const getPosts = () => {
@@ -20,8 +19,8 @@ function Home() {
                 return response.json();
             })
             .then(function (postsJson) {
-                const fetch = postsJson.sort((a, b) => b.id - a.id);
-                setPosts(fetch);
+                const sorted = postsJson.sort((a, b) => b.id - a.id);
+                setPosts(sorted);
             });
     };
     useEffect(() => {
@@ -33,23 +32,29 @@ function Home() {
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
     const currentPost = posts.slice(indexOfFirstPost, indexOfLastPost);
 
+    // change the page
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
+
     return (
         <div>
             <Header
-                headerTitle="Welcome"
-                subHeading="Simple and minimalist portal blog with React"
+                headerTitle="All Post"
+                subHeading="This is all posted article you can read"
                 headerStyle={{
                     backgroundImage: `url('assets/img/post-bg.jpg')`,
                 }}
             />
-
             <div className="container px-4 px-lg-5">
                 <div className="row gx-4 gx-lg-5 justify-content-center">
                     <div className="col-md-10 col-lg-8 col-xl-7">
                         <Post posts={currentPost} />
-                        <NavLink to="/post">
-                            <Button btnTitle="All Posts →" />
-                        </NavLink>
+                        <Pagination
+                            postsPerPage={postsPerPage}
+                            totalPosts={posts.length}
+                            paginate={paginate}
+                        />
                     </div>
                 </div>
             </div>
@@ -57,4 +62,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Posts;
