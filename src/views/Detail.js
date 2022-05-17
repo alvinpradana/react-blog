@@ -4,8 +4,8 @@ import Header from "../components/Header";
 
 function Detail(props) {
     const { id } = useParams();
-    const [data, setData] = useState([]);
-    const getData = () => {
+    const [post, setPost] = useState([]);
+    const getPost = () => {
         fetch("./posts.json", {
             headers: {
                 "Content-Type": "application/json",
@@ -15,16 +15,18 @@ function Detail(props) {
             .then(function (response) {
                 return response.json();
             })
-            .then(function (dataJson) {
-                dataJson.map((post) => {
-                    if (post.id == id) {
-                        setData(post);
+            .then(function (postJson) {
+                postJson.map((post) => {
+                    if (post.id === parseInt(id)) {
+                        setPost(post);
                     }
+                    return post;
                 });
+                console.log(post);
             });
     };
     useEffect(() => {
-        getData();
+        getPost();
     }, []);
     return (
         <div>
@@ -39,9 +41,9 @@ function Detail(props) {
                 <div className="container px-4 px-lg-5">
                     <div className="row gx-4 gx-lg-5 justify-content-center">
                         <div className="col-md-10 col-lg-8 col-xl-7">
-                            <div key={data.id}>
-                                <h1 className="text-center">{data.title}</h1>
-                                <p>{data.content}</p>
+                            <div key={post.id}>
+                                <h1 className="text-center">{post.title}</h1>
+                                <p>{post.content}</p>
                             </div>
                         </div>
                     </div>
