@@ -47,7 +47,7 @@ function Home() {
                     <div className="col-md-10 col-lg-8 col-xl-7">
                         <Post posts={currentPost} />
                         <NavLink to="/post">
-                            <Button btnTitle="All Posts →" />
+                            <Button btnType="button" btnTitle="All Posts →" />
                         </NavLink>
                     </div>
                 </div>
