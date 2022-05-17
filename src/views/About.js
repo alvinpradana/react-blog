@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 
-function About(props) {
+function About() {
     return (
         <div>
             <Header headerTitle="About Page" subHeading="Information about our company, team, and services"

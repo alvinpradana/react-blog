@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Header from "../components/Header";
 
-function Detail(props) {
+function Detail() {
     const { id } = useParams();
     const [post, setPost] = useState([]);
     const getPost = () => {
@@ -22,7 +22,6 @@ function Detail(props) {
                     }
                     return post;
                 });
-                console.log(post);
             });
     };
     useEffect(() => {

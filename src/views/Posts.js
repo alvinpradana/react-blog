@@ -3,7 +3,7 @@ import { Post } from "../components/Post";
 import Pagination from "../components/Pagination";
 import Header from "../components/Header";
 
-function Posts(props) {
+function Posts() {
     const [posts, setPosts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(3);
@@ -15,10 +15,10 @@ function Posts(props) {
                 Accept: "application/json",
             },
         })
-            .then(function (response) {
+            .then((response) => {
                 return response.json();
             })
-            .then(function (postsJson) {
+            .then((postsJson) => {
                 const sorted = postsJson.sort((a, b) => b.id - a.id);
                 setPosts(sorted);
             });

@@ -6,7 +6,6 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
         pageNumbers.push(i);
     }
 
-    console.log()
     return (
         <nav>
             <ul className="pagination">
