@@ -25,20 +25,19 @@ function Posts() {
     };
     useEffect(() => {
         getPosts();
+        setCurrentPage(localStorage.getItem('currentPage'));
     }, []);
 
-    // get current posts
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
     const currentPost = posts.slice(indexOfFirstPost, indexOfLastPost);
 
-    // change the page
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber);
     };
 
     return (
-        <div>
+        <>
             <Header
                 headerTitle="All Post"
                 subHeading="This is all posted article you can read"
@@ -58,7 +57,7 @@ function Posts() {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 

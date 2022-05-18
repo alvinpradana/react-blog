@@ -34,7 +34,7 @@ function Home() {
     const currentPost = posts.slice(indexOfFirstPost, indexOfLastPost);
 
     return (
-        <div>
+        <>
             <Header
                 headerTitle="Welcome"
                 subHeading="Simple and minimalist portal blog with React"
@@ -52,7 +52,7 @@ function Home() {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 

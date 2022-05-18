@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
     const pageNumbers = [];
@@ -9,19 +10,32 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
     return (
         <nav>
             <ul className="pagination">
+                <li className="page-item">
+                    <a  className="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
                 {pageNumbers.map((number) => (
                     <div key={number}>
                         <li className="page-item">
-                            <a
-                                onClick={() => paginate(number)}
+                            <NavLink
+                                onClick={() => {
+                                    paginate(number);
+                                    localStorage.setItem("currentPage", number);
+                                }}
                                 className="page-link"
-                                href="#!"
+                                to={`#!`}
                             >
                                 {number}
-                            </a>
+                            </NavLink>
                         </li>
                     </div>
                 ))}
+                <li className="page-item">
+                    <a className="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
             </ul>
         </nav>
     );

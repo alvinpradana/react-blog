@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export const Post = ({ posts }) => {
     return (
-        <div>
+        <>
             {posts &&
                 posts.length > 0 &&
                 posts.map((post) => {
@@ -24,6 +24,6 @@ export const Post = ({ posts }) => {
                         </div>
                     );
                 })}
-        </div>
+        </>
     );
 };

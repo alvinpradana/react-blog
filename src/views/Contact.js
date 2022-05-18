@@ -8,12 +8,13 @@ function Contact(props) {
         register,
         handleSubmit,
         reset,
-        formState: { errors }
+        formState: { errors },
     } = useForm({
         mode: "onBlur",
     });
     const onSubmit = (data) => {
-        reset()
+        reset();
+        alert("Your message sent successfully.");
     };
 
     return (
@@ -44,7 +45,7 @@ function Contact(props) {
                             />
                             {errors.name && (
                                 <small className="invalid-feedback">
-                                    Field name can't empty.
+                                    Field name is required.
                                 </small>
                             )}
                         </div>
@@ -84,7 +85,7 @@ function Contact(props) {
                                 {...register("message", { required: true })}
                             />
                             <small className="invalid-feedback">
-                                Field message can't empty.
+                                Field message is required.
                             </small>
                         </div>
                         <Button btnType="submit" btnTitle="Send" />

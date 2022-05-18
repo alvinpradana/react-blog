@@ -28,7 +28,7 @@ function Detail() {
         getPost();
     }, []);
     return (
-        <div>
+        <>
             <Header
                 headerTitle="Detail Post"
                 subHeading="Simple and minimalist portal blog with React"
@@ -48,7 +48,7 @@ function Detail() {
                     </div>
                 </div>
             </article>
-        </div>
+        </>
     );
 }
 

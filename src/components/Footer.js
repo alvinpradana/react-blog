@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer(props) {
     return (
-        <div>
+        <>
             <footer className="border-top">
                 <div className="container px-4 px-lg-5">
                     <div className="row gx-4 gx-lg-5 justify-content-center">
@@ -37,7 +37,7 @@ function Footer(props) {
                     </div>
                 </div>
             </footer>
-        </div>
+        </>
     );
 }
 

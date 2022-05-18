@@ -2,7 +2,7 @@ import React from 'react';
 
 function Header(props) {
     return (
-        <div>
+        <>
             <header className="masthead" style={props.headerStyle}>
                 <div className="container position-relative px-4 px-lg-5">
                     <div className="row gx-4 gx-lg-5 justify-content-center">
@@ -17,7 +17,7 @@ function Header(props) {
                     </div>
                 </div>
             </header>
-        </div>
+        </>
     );
 }
 
